@@ -133,7 +133,7 @@ func (task *Task) WaitInspectTaskCompletion(inspectionFunc InspectionFunc, delay
 		if inspectionFunc == nil {
 			if taskMonitor != "" {
 				switch taskMonitor {
-				case "log":
+				case log "github.com/sourcegraph-ce/logrus":
 					inspectionFunc = LogTask // writes full task details to the log
 				case "show":
 					inspectionFunc = ShowTask // writes full task details to the screen

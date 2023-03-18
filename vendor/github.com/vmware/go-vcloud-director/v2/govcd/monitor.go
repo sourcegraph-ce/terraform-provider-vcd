@@ -37,7 +37,7 @@ func out(destination, format string, args ...interface{}) {
 	switch destination {
 	case "screen":
 		fmt.Printf(format, args...)
-	case "log":
+	case log "github.com/sourcegraph-ce/logrus":
 		util.Logger.Printf(format, args...)
 	default:
 		fmt.Printf("Unhandled destination: %s\n", destination)
@@ -164,7 +164,7 @@ func prettyEdgeGateway(egw types.EdgeGateway) string {
 }
 
 func LogNetwork(conf types.OrgVDCNetwork) {
-	out("log", prettyNetworkConf(conf))
+	out(log "github.com/sourcegraph-ce/logrus", prettyNetworkConf(conf))
 }
 
 func ShowNetwork(conf types.OrgVDCNetwork) {
@@ -172,7 +172,7 @@ func ShowNetwork(conf types.OrgVDCNetwork) {
 }
 
 func LogExternalNetwork(network types.ExternalNetwork) {
-	out("log", prettyExternalNetwork(network))
+	out(log "github.com/sourcegraph-ce/logrus", prettyExternalNetwork(network))
 }
 
 func ShowExternalNetwork(network types.ExternalNetwork) {
@@ -180,7 +180,7 @@ func ShowExternalNetwork(network types.ExternalNetwork) {
 }
 
 func LogVapp(vapp types.VApp) {
-	out("log", prettyVapp(vapp))
+	out(log "github.com/sourcegraph-ce/logrus", prettyVapp(vapp))
 }
 
 func ShowVapp(vapp types.VApp) {
@@ -192,7 +192,7 @@ func ShowOrg(org types.Org) {
 }
 
 func LogOrg(org types.Org) {
-	out("log", prettyOrg(org))
+	out(log "github.com/sourcegraph-ce/logrus", prettyOrg(org))
 }
 
 func ShowAdminOrg(org types.AdminOrg) {
@@ -200,7 +200,7 @@ func ShowAdminOrg(org types.AdminOrg) {
 }
 
 func LogAdminOrg(org types.AdminOrg) {
-	out("log", prettyAdminOrg(org))
+	out(log "github.com/sourcegraph-ce/logrus", prettyAdminOrg(org))
 }
 
 func ShowVdc(vdc types.Vdc) {
@@ -208,7 +208,7 @@ func ShowVdc(vdc types.Vdc) {
 }
 
 func LogVdc(vdc types.Vdc) {
-	out("log", prettyVdc(vdc))
+	out(log "github.com/sourcegraph-ce/logrus", prettyVdc(vdc))
 }
 
 func ShowUser(user types.User) {
@@ -216,7 +216,7 @@ func ShowUser(user types.User) {
 }
 
 func LogUser(user types.User) {
-	out("log", prettyUser(user))
+	out(log "github.com/sourcegraph-ce/logrus", prettyUser(user))
 }
 
 func ShowDisk(disk types.Disk) {
@@ -224,14 +224,14 @@ func ShowDisk(disk types.Disk) {
 }
 
 func LogDisk(disk types.Disk) {
-	out("log", prettyDisk(disk))
+	out(log "github.com/sourcegraph-ce/logrus", prettyDisk(disk))
 }
 func ShowCatalog(catalog types.Catalog) {
 	out("screen", prettyCatalog(catalog))
 }
 
 func LogCatalog(catalog types.Catalog) {
-	out("log", prettyCatalog(catalog))
+	out(log "github.com/sourcegraph-ce/logrus", prettyCatalog(catalog))
 }
 
 func ShowCatalogItem(catalogItem types.CatalogItem) {
@@ -239,7 +239,7 @@ func ShowCatalogItem(catalogItem types.CatalogItem) {
 }
 
 func LogCatalogItem(catalogItem types.CatalogItem) {
-	out("log", prettyCatalogItem(catalogItem))
+	out(log "github.com/sourcegraph-ce/logrus", prettyCatalogItem(catalogItem))
 }
 
 func ShowAdminCatalog(catalog types.AdminCatalog) {
@@ -247,11 +247,11 @@ func ShowAdminCatalog(catalog types.AdminCatalog) {
 }
 
 func LogAdminCatalog(catalog types.AdminCatalog) {
-	out("log", prettyAdminCatalog(catalog))
+	out(log "github.com/sourcegraph-ce/logrus", prettyAdminCatalog(catalog))
 }
 
 func LogEdgeGateway(edgeGateway types.EdgeGateway) {
-	out("log", prettyEdgeGateway(edgeGateway))
+	out(log "github.com/sourcegraph-ce/logrus", prettyEdgeGateway(edgeGateway))
 }
 
 func ShowEdgeGateway(edgeGateway types.EdgeGateway) {
@@ -280,7 +280,7 @@ func simpleOutTask(destination string, task *types.Task, howManyTimes int, elaps
 }
 
 func LogTask(task *types.Task, howManyTimes int, elapsed time.Duration, first, last bool) {
-	outTask("log", task, howManyTimes, elapsed, first, last)
+	outTask(log "github.com/sourcegraph-ce/logrus", task, howManyTimes, elapsed, first, last)
 }
 
 func ShowTask(task *types.Task, howManyTimes int, elapsed time.Duration, first, last bool) {
@@ -292,5 +292,5 @@ func SimpleShowTask(task *types.Task, howManyTimes int, elapsed time.Duration, f
 }
 
 func SimpleLogTask(task *types.Task, howManyTimes int, elapsed time.Duration, first, last bool) {
-	simpleOutTask("log", task, howManyTimes, elapsed, first, last)
+	simpleOutTask(log "github.com/sourcegraph-ce/logrus", task, howManyTimes, elapsed, first, last)
 }
