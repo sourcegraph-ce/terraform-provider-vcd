@@ -3,7 +3,7 @@ package vcd
 import (
 	"bytes"
 	"fmt"
-	"log"
+	log "github.com/sourcegraph-ce/logrus"
 	"net"
 	"sort"
 	"strconv"

@@ -10,7 +10,7 @@ package util
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
+	log "github.com/sourcegraph-ce/logrus"
 	"net/http"
 	"os"
 	"path"

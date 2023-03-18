@@ -10,7 +10,7 @@ package pretty
 import (
 	"fmt"
 	"io"
-	"log"
+	log "github.com/sourcegraph-ce/logrus"
 	"reflect"
 )
 
